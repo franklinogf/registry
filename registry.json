@@ -4,16 +4,13 @@
   "homepage": "https://acme.com",
   "items": [
     {
-      "name": "input-field",
-      "type": "registry:component",
-      "title": "Input field",
-      "description": "A custom input field component.",
-      "registryDependencies": ["label", "input", "utils"],
+      "name": "field-skeleton",
+      "type": "registry:block",
+      "title": "Field Skeleton",
+      "description": "Multiple components for fields.",
+      "registryDependencies": ["utils", "label"],
+      "dependencies": ["lucide-react"],
       "files": [
-        {
-          "path": "registry/new-york/inputs/input-field.tsx",
-          "type": "registry:component"
-        },
         {
           "path": "registry/new-york/components/field-container.tsx",
           "type": "registry:component"
@@ -28,6 +25,22 @@
         },
         {
           "path": "registry/new-york/components/required-field-icon.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "input-field",
+      "type": "registry:component",
+      "title": "Input field",
+      "description": "A custom input field component.",
+      "registryDependencies": [
+        "input",
+        "http://localhost:3000/r/field-skeleton.json"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/inputs/input-field.tsx",
           "type": "registry:component"
         }
       ]
