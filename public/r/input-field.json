@@ -6,7 +6,8 @@
   "description": "A custom input field component.",
   "registryDependencies": [
     "label",
-    "input"
+    "input",
+    "utils"
   ],
   "files": [
     {
@@ -33,11 +34,6 @@
       "path": "registry/new-york/components/required-field-icon.tsx",
       "content": "import { cn } from \"@/lib/utils\";\r\nimport { AsteriskIcon } from \"lucide-react\";\r\n\r\nexport function RequiredFieldIcon({ className }: { className?: string }) {\r\n  return (\r\n    <AsteriskIcon\r\n      className={cn(\"size-3 text-red-600 dark:text-red-400\", className)}\r\n    />\r\n  );\r\n}\r\n",
       "type": "registry:component"
-    },
-    {
-      "path": "registry/new-york/lib/utils.ts",
-      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
-      "type": "registry:lib"
     }
   ]
 }

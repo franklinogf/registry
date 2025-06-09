@@ -8,7 +8,7 @@
       "type": "registry:component",
       "title": "Input field",
       "description": "A custom input field component.",
-      "registryDependencies": ["label", "input"],
+      "registryDependencies": ["label", "input", "utils"],
       "files": [
         {
           "path": "registry/new-york/inputs/input-field.tsx",
@@ -29,10 +29,6 @@
         {
           "path": "registry/new-york/components/required-field-icon.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "registry/new-york/lib/utils.ts",
-          "type": "registry:lib"
         }
       ]
     }
