@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-field",
+  "type": "registry:component",
+  "title": "Input field",
+  "description": "A custom input field component.",
+  "registryDependencies": [
+    "label",
+    "input"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/inputs/input-field.tsx",
+      "content": "\"use client\";\r\nimport { FieldContainer } from \"@/registry/new-york/components/field-container\";\r\nimport { FieldError } from \"@/registry/new-york/components/field-error\";\r\nimport { FieldLabel } from \"@/registry/new-york/components/field-label\";\r\nimport { Input } from \"@/registry/new-york/ui/input\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { useId } from \"react\";\r\n\r\nexport interface InputFieldProps\r\n  extends Omit<React.ComponentProps<typeof Input>, \"onChange\" | \"id\"> {\r\n  onChange?: (value: string) => void;\r\n  error?: string;\r\n  label?: string;\r\n  fieldClassName?: string;\r\n  errorOnTop?: boolean;\r\n}\r\n\r\nexport function InputField({\r\n  required,\r\n  error,\r\n  label,\r\n  disabled,\r\n  className,\r\n  value,\r\n  onChange,\r\n  fieldClassName,\r\n  errorOnTop,\r\n  ...props\r\n}: InputFieldProps) {\r\n  const id = useId();\r\n  return (\r\n    <FieldContainer className={className}>\r\n      <FieldLabel\r\n        disabled={disabled}\r\n        id={id}\r\n        label={label}\r\n        required={required}\r\n      />\r\n      {errorOnTop && <FieldError error={error} />}\r\n      <Input\r\n        required={required}\r\n        disabled={disabled}\r\n        id={id}\r\n        value={value}\r\n        className={cn(\r\n          {\r\n            \"border-red-600 ring-offset-red-600 focus-visible:ring-red-600 dark:border-red-400 dark:ring-offset-red-400 dark:focus-visible:ring-red-400\":\r\n              error,\r\n          },\r\n          fieldClassName\r\n        )}\r\n        onChange={(e) => {\r\n          onChange?.(e.target.value);\r\n        }}\r\n        {...props}\r\n      />\r\n      {!errorOnTop && <FieldError error={error} />}\r\n    </FieldContainer>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/new-york/components/field-container.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\n\r\nexport function FieldContainer({\r\n  children,\r\n  className,\r\n}: {\r\n  children: React.ReactNode;\r\n  className?: string;\r\n}) {\r\n  return <div className={cn(\"space-y-1\", className)}>{children}</div>;\r\n}\r\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/new-york/components/field-error.tsx",
+      "content": "interface FieldErrorProps {\r\n  error?: string;\r\n}\r\nexport function FieldError({ error }: FieldErrorProps) {\r\n  if (!error) return null;\r\n\r\n  return <p className='text-sm text-red-600 dark:text-red-400'>{error}</p>;\r\n}\r\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/new-york/components/field-label.tsx",
+      "content": "import { Label } from \"@/registry/new-york/ui/label\";\r\nimport { cn } from \"@/lib/utils\";\r\nimport { RequiredFieldIcon } from \"@/registry/new-york/components/required-field-icon\";\r\n\r\nexport interface FieldLabelProps {\r\n  required?: boolean;\r\n  label?: string;\r\n  disabled?: boolean;\r\n  id?: string;\r\n  className?: string;\r\n}\r\n\r\nexport function FieldLabel({\r\n  required,\r\n  label,\r\n  disabled,\r\n  id,\r\n  className,\r\n}: FieldLabelProps) {\r\n  if (!label) return null;\r\n\r\n  return (\r\n    <Label\r\n      asChild={id === undefined}\r\n      aria-disabled={disabled}\r\n      className={cn(\r\n        \"flex gap-x-0.5\",\r\n        {\r\n          \"text-muted-foreground/80\": disabled,\r\n        },\r\n        className\r\n      )}\r\n      htmlFor={id}\r\n    >\r\n      {id === undefined ? (\r\n        <div>\r\n          <span>{label}</span>\r\n          {required && <RequiredFieldIcon className='self-start' />}\r\n        </div>\r\n      ) : (\r\n        <>\r\n          <span>{label}</span>\r\n          {required && <RequiredFieldIcon className='self-start' />}\r\n        </>\r\n      )}\r\n    </Label>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/new-york/components/required-field-icon.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport { AsteriskIcon } from \"lucide-react\";\r\n\r\nexport function RequiredFieldIcon({ className }: { className?: string }) {\r\n  return (\r\n    <AsteriskIcon\r\n      className={cn(\"size-3 text-red-600 dark:text-red-400\", className)}\r\n    />\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/new-york/lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\r\nimport { twMerge } from \"tailwind-merge\"\r\n\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return twMerge(clsx(inputs))\r\n}\r\n",
+      "type": "registry:lib"
+    }
+  ]
+}
