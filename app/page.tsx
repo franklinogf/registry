@@ -1,5 +1,5 @@
-import { OpenInV0Button } from "@/components/open-in-v0-button";
-import { InputField } from "@/registry/default/inputs/input-field";
+import components from "@/components";
+import { ShowcaseComponent } from "@/components/showcase-component";
 
 export default function Home() {
   return (
@@ -7,27 +7,20 @@ export default function Home() {
       <header className='flex flex-col gap-1'>
         <h1 className='text-3xl font-bold tracking-tight'>Custom Registry</h1>
         <p className='text-muted-foreground'>
-          A custom registry for distributing code using shadcn.
+          A custom registry using shadcn components.
         </p>
       </header>
       <main className='flex flex-col flex-1 gap-8'>
-        <div className='flex flex-col gap-4 border rounded-lg p-4 min-h-[150px] relative'>
-          <div className='flex items-center justify-between'>
-            <h2 className='text-sm text-muted-foreground sm:pl-3'>
-              A simple input field with a label and placeholder.
-            </h2>
-            <OpenInV0Button
-              name='input-field'
-              className='w-fit'
-            />
-          </div>
-          <div className='flex items-center justify-center min-h-[100px] relative'>
-            <InputField
-              label='Name'
-              placeholder='Enter your name'
-            />
-          </div>
-        </div>
+        {components.map((component) => (
+          <ShowcaseComponent
+            key={component.name}
+            title={component.title}
+            name={component.name}
+            codeBlock={component.codeBlock}
+          >
+            {component.component()}
+          </ShowcaseComponent>
+        ))}
       </main>
     </div>
   );
