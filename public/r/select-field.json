@@ -7,7 +7,7 @@
   "registryDependencies": [
     "select",
     "button",
-    "http://localhost:3000/r/field-skeleton.json"
+    "https://registry-six-chi.vercel.app/r/field-skeleton.json"
   ],
   "files": [
     {

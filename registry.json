@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "franklinogf",
-  "homepage": "https://acme.com",
+  "homepage": "https://registry-six-chi.vercel.app",
   "items": [
     {
       "name": "field-skeleton",
@@ -36,7 +36,7 @@
       "description": "A custom input field component.",
       "registryDependencies": [
         "input",
-        "http://localhost:3000/r/field-skeleton.json"
+        "https://registry-six-chi.vercel.app/r/field-skeleton.json"
       ],
       "files": [
         {
@@ -53,7 +53,7 @@
       "registryDependencies": [
         "select",
         "button",
-        "http://localhost:3000/r/field-skeleton.json"
+        "https://registry-six-chi.vercel.app/r/field-skeleton.json"
       ],
       "files": [
         {
