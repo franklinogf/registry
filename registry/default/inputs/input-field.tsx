@@ -1,8 +1,8 @@
 "use client";
-import { FieldContainer } from "@/registry/new-york/components/field-container";
-import { FieldError } from "@/registry/new-york/components/field-error";
-import { FieldLabel } from "@/registry/new-york/components/field-label";
-import { Input } from "@/registry/new-york/ui/input";
+import { FieldContainer } from "@/registry/default/field-container";
+import { FieldError } from "@/registry/default/field-error";
+import { FieldLabel } from "@/registry/default/field-label";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useId } from "react";
 

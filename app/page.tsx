@@ -1,4 +1,5 @@
-import { InputField } from "@/registry/new-york/inputs/input-field";
+import { OpenInV0Button } from "@/components/open-in-v0-button";
+import { InputField } from "@/registry/default/inputs/input-field";
 
 export default function Home() {
   return (
@@ -10,42 +11,22 @@ export default function Home() {
         </p>
       </header>
       <main className='flex flex-col flex-1 gap-8'>
-        <div className='flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative'>
+        <div className='flex flex-col gap-4 border rounded-lg p-4 min-h-[150px] relative'>
           <div className='flex items-center justify-between'>
             <h2 className='text-sm text-muted-foreground sm:pl-3'>
-              A simple hello world component
+              A simple input field with a label and placeholder.
             </h2>
+            <OpenInV0Button
+              name='input-field'
+              className='w-fit'
+            />
           </div>
-          <div className='flex items-center justify-center min-h-[400px] relative'>
-            <InputField label='Name' />
+          <div className='flex items-center justify-center min-h-[100px] relative'>
+            <InputField
+              label='Name'
+              placeholder='Enter your name'
+            />
           </div>
-        </div>
-
-        <div className='flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative'>
-          <div className='flex items-center justify-between'>
-            <h2 className='text-sm text-muted-foreground sm:pl-3'>
-              A contact form with Zod validation.
-            </h2>
-          </div>
-          <div className='flex items-center justify-center min-h-[500px] relative'></div>
-        </div>
-
-        <div className='flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative'>
-          <div className='flex items-center justify-between'>
-            <h2 className='text-sm text-muted-foreground sm:pl-3'>
-              A complex component showing hooks, libs and components.
-            </h2>
-          </div>
-          <div className='flex items-center justify-center min-h-[400px] relative'></div>
-        </div>
-
-        <div className='flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative'>
-          <div className='flex items-center justify-between'>
-            <h2 className='text-sm text-muted-foreground sm:pl-3'>
-              A login form with a CSS file.
-            </h2>
-          </div>
-          <div className='flex items-center justify-center min-h-[400px] relative'></div>
         </div>
       </main>
     </div>

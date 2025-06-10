@@ -1,6 +1,6 @@
-import { Label } from "@/registry/new-york/ui/label";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { RequiredFieldIcon } from "@/registry/new-york/components/required-field-icon";
+import { RequiredFieldIcon } from "@/registry/default/required-field-icon";
 
 export interface FieldLabelProps {
   required?: boolean;

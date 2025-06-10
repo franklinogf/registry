@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-field",
+  "type": "registry:component",
+  "title": "Select field",
+  "description": "A custom input field component.",
+  "registryDependencies": [
+    "select",
+    "button",
+    "http://localhost:3000/r/field-skeleton.json"
+  ],
+  "files": [
+    {
+      "path": "registry/default/inputs/select-field.tsx",
+      "content": "\"use client\";\nimport { FieldContainer } from \"@/registry/default/field-container\";\nimport { FieldError } from \"@/registry/default/field-error\";\nimport { FieldLabel } from \"@/registry/default/field-label\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectSeparator,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\";\nimport { cn } from \"@/lib/utils\";\nimport React, { useId } from \"react\";\nexport type SelectOption = {\n  label: string;\n  value: string | number;\n};\ninterface DefaultSelectFieldProps {\n  required?: boolean;\n  error?: string;\n  label?: string;\n  disabled?: boolean;\n  className?: string;\n  placeholder?: string;\n  clearable?: boolean;\n  value?: string;\n  onChange?: (value: string) => void;\n  clearLabel?: string;\n}\n\ntype SelectFieldPropsWithItems = DefaultSelectFieldProps & {\n  options: SelectOption[];\n  children?: never;\n};\ntype SelectFieldPropsWithChildren = DefaultSelectFieldProps & {\n  options?: never;\n  children: React.ReactNode;\n};\nexport type SelectFieldProps =\n  | SelectFieldPropsWithItems\n  | SelectFieldPropsWithChildren;\n\nexport function SelectField({\n  error,\n  label,\n  disabled,\n  className,\n  placeholder,\n  options,\n  children,\n  value,\n  clearable = false,\n  onChange,\n  required,\n  clearLabel = \"Deselect\",\n}: SelectFieldProps) {\n  const id = useId();\n  return (\n    <FieldContainer className={className}>\n      <FieldLabel\n        disabled={disabled}\n        id={id}\n        label={label}\n        required={required}\n      />\n      <Select\n        required={required}\n        name={id}\n        disabled={disabled}\n        value={value}\n        onValueChange={onChange}\n      >\n        <SelectTrigger\n          id={id}\n          className={cn(\"w-full\", {\n            \"border-destructive ring-offset-destructive focus-visible:ring-destructive\":\n              error,\n          })}\n        >\n          <SelectValue placeholder={placeholder} />\n        </SelectTrigger>\n        <SelectContent>\n          {options\n            ? options.map((item) => (\n                <SelectItem\n                  key={item.value}\n                  value={item.value.toString()}\n                >\n                  {item.label}\n                </SelectItem>\n              ))\n            : children}\n          {clearable && (\n            <>\n              <SelectSeparator />\n              <Button\n                size='sm'\n                onClick={() => {\n                  onChange?.(\"\");\n                }}\n                className='w-full'\n                variant='secondary'\n              >\n                {clearLabel}\n              </Button>\n            </>\n          )}\n        </SelectContent>\n      </Select>\n      <FieldError error={error} />\n    </FieldContainer>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}

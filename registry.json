@@ -12,19 +12,19 @@
       "dependencies": ["lucide-react"],
       "files": [
         {
-          "path": "registry/new-york/components/field-container.tsx",
+          "path": "registry/default/field-container.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/new-york/components/field-error.tsx",
+          "path": "registry/default/field-error.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/new-york/components/field-label.tsx",
+          "path": "registry/default/field-label.tsx",
           "type": "registry:component"
         },
         {
-          "path": "registry/new-york/components/required-field-icon.tsx",
+          "path": "registry/default/required-field-icon.tsx",
           "type": "registry:component"
         }
       ]
@@ -40,7 +40,24 @@
       ],
       "files": [
         {
-          "path": "registry/new-york/inputs/input-field.tsx",
+          "path": "registry/default/inputs/input-field.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "select-field",
+      "type": "registry:component",
+      "title": "Select field",
+      "description": "A custom input field component.",
+      "registryDependencies": [
+        "select",
+        "button",
+        "http://localhost:3000/r/field-skeleton.json"
+      ],
+      "files": [
+        {
+          "path": "registry/default/inputs/select-field.tsx",
           "type": "registry:component"
         }
       ]
